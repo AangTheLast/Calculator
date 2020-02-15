@@ -1,6 +1,7 @@
 #include "cal.h"
 #include "ui_cal.h"
 #include "math.h"
+#include "QMessageBox"
 
 // Holds current value of calulation
 double calVal = 0.0;
@@ -51,6 +52,9 @@ cal::cal(QWidget *parent) :
         connect(numButtons[i], SIGNAL(released()), this,
                 SLOT(NumPressed()));
 }
+        //Push Me
+        connect(ui->creator, SIGNAL(released()), this,
+            SLOT(Text()));
 
     // Connect signals and slots for math buttons
     connect(ui->Add, SIGNAL(released()), this,
@@ -347,4 +351,7 @@ void cal::Root(){
     }
 
 
+}
+void cal::Text(){
+    QMessageBox::information(this,tr("Calculator"),tr("Student : Ananya Tapi & Hamza Kamal \nGuide : Vinay Singh"));
 }
