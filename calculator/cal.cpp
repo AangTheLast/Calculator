@@ -10,15 +10,16 @@ bool divTrigger = false;
 bool multTrigger = false;
 bool addTrigger = false;
 bool subTrigger = false;
-bool sineTrigger= false;
-bool cosTrigger= false;
-bool tanTrigger= false;
-bool arcsinTrigger= false;
-bool arccosTrigger= false;
-bool arctanTrigger= false;
-bool logTrigger= false;
-bool lnTrigger= false;
-
+bool sineTrigger = false;
+bool cosTrigger = false;
+bool tanTrigger = false;
+bool arcsinTrigger = false;
+bool arccosTrigger = false;
+bool arctanTrigger = false;
+bool logTrigger = false;
+bool lnTrigger = false;
+bool sqrtTrigger = false;
+bool qrtTrigger = false;
 
 // Constructor
 cal::cal(QWidget *parent) :
@@ -86,15 +87,18 @@ cal::cal(QWidget *parent) :
     connect(ui->arctan, SIGNAL(released()), this,
             SLOT(Trig()));
     //Connect Log button
-    connect(ui->Log, SIGNAL(released()), this,
+    connect(ui->log, SIGNAL(released()), this,
             SLOT(Log()));
-    connect(ui->NaturaLog, SIGNAL(released()), this,
+    connect(ui->ln, SIGNAL(released()), this,
             SLOT(Log()));
     //Connect Exponent Button
     connect(ui->Exponent, SIGNAL(released()), this,
             SLOT(Expo()));
-
-
+    //Connect Root Buttons
+    connect(ui->SquareRoot, SIGNAL(released()), this,
+            SLOT(Root()));
+    connect(ui->CubeRoot, SIGNAL(released()), this,
+            SLOT(Root()));
 }
 
 cal::~cal()
@@ -310,4 +314,37 @@ void cal::Expo(){
 
     ui->Display->setText(QString::number(exp(dblDisplayVal)));
 }
+void cal::Root(){
 
+    double solution =0;
+
+    sqrtTrigger= false;
+    qrtTrigger= false;
+
+
+    // Store current value in Display
+    QString displayVal = ui->Display->text();
+    double dblDisplayVal = displayVal.toDouble();
+    // Sender returns a pointer to the button pressed
+    QPushButton *button = (QPushButton *)sender();
+
+    // Get math symbol on the button
+    QString butVal = button->text();
+
+    if(QString::compare(butVal, "Sqrt", Qt::CaseInsensitive) == 0){
+        sqrtTrigger = true;
+    } else if(QString::compare(butVal, "Cuberoot", Qt::CaseInsensitive) == 0){
+        qrtTrigger = true;
+    }
+
+    if(sqrtTrigger || qrtTrigger){
+        if(sqrtTrigger){
+        solution = sqrt(dblDisplayVal);
+        } else if(qrtTrigger){
+            solution = cbrt(dblDisplayVal);
+        }
+    ui->Display->setText(QString::number(solution));
+    }
+
+
+}

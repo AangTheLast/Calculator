@@ -36,5 +36,6 @@ private slots :
     void Trig();
     void Log();
     void Expo();
+    void Root();
 };
 #endif
