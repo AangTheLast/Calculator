@@ -16,6 +16,8 @@ bool tanTrigger= false;
 bool arcsinTrigger= false;
 bool arccosTrigger= false;
 bool arctanTrigger= false;
+bool logTrigger= false;
+bool lnTrigger= false;
 
 
 // Constructor
@@ -83,6 +85,16 @@ cal::cal(QWidget *parent) :
             SLOT(Trig()));
     connect(ui->arctan, SIGNAL(released()), this,
             SLOT(Trig()));
+    //Connect Log button
+    connect(ui->Log, SIGNAL(released()), this,
+            SLOT(Log()));
+    connect(ui->NaturaLog, SIGNAL(released()), this,
+            SLOT(Log()));
+    //Connect Exponent Button
+    connect(ui->Exponent, SIGNAL(released()), this,
+            SLOT(Expo()));
+
+
 }
 
 cal::~cal()
@@ -233,12 +245,12 @@ void cal::Trig(){
      } else if(QString::compare(butVal, "arctan", Qt::CaseInsensitive) == 0){
          arctanTrigger = true;
      }
+
      double solution=0;
+
+    // Store current value in Display
     QString displayVal = ui->Display->text();
     double dblDisplayVal = displayVal.toDouble();
-    ui->Display->setText(QString::number(sin(dblDisplayVal)));
-
-
 
     // Make sure a math button was pressed
     if(sineTrigger || cosTrigger || tanTrigger || arcsinTrigger || arccosTrigger || arctanTrigger ){
@@ -256,6 +268,46 @@ void cal::Trig(){
             solution = atan(dblDisplayVal);
         }
         ui->Display->setText(QString::number(solution));
+    } 
     }
+void cal::Log(){
+
+     double solution=0;
+
+     logTrigger= false;
+     lnTrigger= false;
+
+    // Store current value in Display
+    QString displayVal = ui->Display->text();
+    double dblDisplayVal = displayVal.toDouble();
+    // Sender returns a pointer to the button pressed
+    QPushButton *button = (QPushButton *)sender();
+
+    // Get math symbol on the button
+    QString butVal = button->text();
+
+    if(QString::compare(butVal, "log", Qt::CaseInsensitive) == 0){
+        logTrigger = true;
+    } else if(QString::compare(butVal, "ln", Qt::CaseInsensitive) == 0){
+        lnTrigger = true;
     }
+    if(logTrigger || lnTrigger){
+        if(logTrigger){
+        solution = log10(dblDisplayVal);
+        } else if(lnTrigger){
+            solution = log(dblDisplayVal);
+        }
+    ui->Display->setText(QString::number(solution));
+    }
+
+}
+
+void cal::Expo(){
+
+    // Store current value in Display
+    QString displayVal = ui->Display->text();
+    double dblDisplayVal = displayVal.toDouble();
+
+    ui->Display->setText(QString::number(exp(dblDisplayVal)));
+}
 

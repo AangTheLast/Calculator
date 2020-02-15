@@ -26,7 +26,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>481</width>
+      <width>501</width>
       <height>91</height>
      </rect>
     </property>
@@ -430,7 +430,7 @@ QPushButton:pressed{
    <widget class="QPushButton" name="Button0">
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>10</x>
       <y>230</y>
       <width>81</width>
       <height>31</height>
@@ -524,7 +524,7 @@ QPushButton:pressed{
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>230</y>
+      <y>270</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -555,7 +555,7 @@ QPushButton:pressed{
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>270</y>
+      <y>310</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -644,7 +644,7 @@ QPushButton:pressed{
      <string>Tan</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="NaturaLog">
+   <widget class="QPushButton" name="ln">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -678,7 +678,7 @@ QPushButton:pressed{
    <widget class="QPushButton" name="SquareRoot">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>280</x>
       <y>310</y>
       <width>81</width>
       <height>31</height>
@@ -737,10 +737,10 @@ QPushButton:pressed{
      <string>Cubert</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="Log">
+   <widget class="QPushButton" name="log">
     <property name="geometry">
      <rect>
-      <x>280</x>
+      <x>400</x>
       <y>310</y>
       <width>81</width>
       <height>31</height>
@@ -772,7 +772,7 @@ QPushButton:pressed{
     <property name="geometry">
      <rect>
       <x>400</x>
-      <y>310</y>
+      <y>350</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -802,7 +802,7 @@ QPushButton:pressed{
    <widget class="QPushButton" name="arcsin">
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>10</x>
       <y>350</y>
       <width>81</width>
       <height>31</height>
@@ -833,7 +833,7 @@ QPushButton:pressed{
    <widget class="QPushButton" name="arccos">
     <property name="geometry">
      <rect>
-      <x>280</x>
+      <x>140</x>
       <y>350</y>
       <width>81</width>
       <height>31</height>
@@ -864,7 +864,7 @@ QPushButton:pressed{
    <widget class="QPushButton" name="arctan">
     <property name="geometry">
      <rect>
-      <x>400</x>
+      <x>280</x>
       <y>350</y>
       <width>81</width>
       <height>31</height>

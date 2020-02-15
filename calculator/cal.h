@@ -34,5 +34,7 @@ private slots :
     void ChangeNumberSign();
     void ClearButtonPressed();
     void Trig();
+    void Log();
+    void Expo();
 };
 #endif
