@@ -72,7 +72,9 @@
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
+
 	background-color:Pink;
+
 	border: 2px solid gray;
 	padding: 5px;
 }

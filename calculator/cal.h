@@ -28,11 +28,15 @@ private:
     // These slots are executed when a signal is
     // submitted (Ex. Number button is clicked)
 private slots :
+    void Text();
     void NumPressed();
     void MathButtonPressed();
     void EqualButtonPressed();
     void ChangeNumberSign();
     void ClearButtonPressed();
     void Trig();
+    void Log();
+    void Expo();
+    void Root();
 };
 #endif
